@@ -15,6 +15,7 @@ written consent of DigiPen Institute of Technology is prohibited.
 #include "AgentOrganizer.h"
 #include "Projects/ProjectOne.h"
 #include "UI/Elements/Text/UIBehaviorTreeTextField.h"
+#include "utility.h"
 
 AgentOrganizer::AgentOrganizer() : cameraAgent(nullptr), bottomTextField(nullptr)
 {}
@@ -134,6 +135,13 @@ const std::vector<Agent*> &AgentOrganizer::get_all_agents_by_type(const char *ty
     return agentsByType[type];
 }
 
+Agent* const AgentOrganizer::searchAgentTypeWithID(size_t id, const char* type) const {
+    for (size_t i = 0; i < agentsAll.size(); ++i) {
+        if (agentsAll[i]->get_id() == id && agentsAll[i]->get_type() == type) return agentsAll[i];
+    }
+    return nullptr;
+}
+
 CameraAgent *const AgentOrganizer::get_camera_agent() const
 {
     return cameraAgent;
@@ -155,11 +163,57 @@ void AgentOrganizer::draw_debug() const
     }
 }
 
+void AgentOrganizer::spawn_game_agent(const char* type, Vec3 const& position) {
+    markedForCreation.emplace_back(std::make_pair(type, position));
+}
+
 void AgentOrganizer::update(float dt)
 {
+    const auto& allRockAgents = agents->get_all_agents_by_type(typeRock);
+    const auto& allScissorAgents = agents->get_all_agents_by_type(typeScissor);
+    const auto& allPaperAgents = agents->get_all_agents_by_type(typePaper);
     // avoid ranged for due to iterator invalidation from insertion
     for (size_t i = 0; i < agentsAll.size(); ++i)
     {
+        // skip all agents that are marked for deletion
+        bool skip{ false };
+        for (size_t const& markedID : markedForDeletion) {
+            if (markedID == agentsAll[i]->get_id()) {
+                skip = true;
+                break;
+            }
+        }
+        if (skip) continue;
+
+        switch (*agentsAll[i]->get_type()) {
+        case *typePaper: // if current agent is paper
+            for (const auto& a : allRockAgents) {
+                if (Vec3::DistanceSquared(agentsAll[i]->position, a->position) < pow((agentRadius + agentRadius), 2)) {
+                    agents->spawn_game_agent(typePaper, a->position);
+                    agents->destroy_agent(a);
+                }
+            }
+            break;
+        case *typeRock: // if current agent is rock
+            for (const auto& a : allScissorAgents) {
+                if (Vec3::DistanceSquared(agentsAll[i]->position, a->position) < pow((agentRadius + agentRadius), 2)) {
+                    agents->spawn_game_agent(typeRock, a->position);
+                    agents->destroy_agent(a);
+                }
+            }
+            break;
+        case *typeScissor: // if current agent is scissor
+            for (const auto& a : allPaperAgents) {
+                if (Vec3::DistanceSquared(agentsAll[i]->position, a->position) < pow((agentRadius + agentRadius), 2)) {
+                    agents->spawn_game_agent(typeScissor, a->position);
+                    agents->destroy_agent(a);
+                }
+            }
+            break;
+        default:
+            break;
+        }
+
         agentsAll[i]->update(dt);
     }
 
@@ -169,38 +223,73 @@ void AgentOrganizer::update(float dt)
 
         for (auto i = markedForDeletion.rbegin(); i != markedForDeletion.rend(); ++i)
         {
-            auto agent = agentsAll[*i];
+            try {
+                auto agent = agentsAll[*i];
 
-            auto type = agent->get_type();
+                auto type = agent->get_type();
 
-            auto result = agentsByType.find(type);
+                auto result = agentsByType.find(type);
 
-            if (result != agentsByType.end())
-            {
-                for (auto j = result->second.begin(); j != result->second.end(); ++j)
+                if (result != agentsByType.end())
                 {
-                    if (*j == agent)
+                    for (auto j = result->second.begin(); j != result->second.end(); ++j)
                     {
-                        result->second.erase(j);
-                        break;
+                        if (*j == agent)
+                        {
+                            result->second.erase(j);
+                            break;
+                        }
                     }
                 }
+
+                #ifdef _DEBUG
+                    BehaviorAgent *bAgent = dynamic_cast<BehaviorAgent *>(agent);
+                    if (bAgent != nullptr)
+                    {
+                        unassign_text_field(bAgent);
+                    }
+                #endif
+
+                delete agent;
+
+                agentsAll.erase(agentsAll.begin() + *i);
             }
-
-            #ifdef _DEBUG
-                BehaviorAgent *bAgent = dynamic_cast<BehaviorAgent *>(agent);
-                if (bAgent != nullptr)
-                {
-                    unassign_text_field(bAgent);
-                }
-            #endif
-
-            delete agent;
-
-            agentsAll.erase(agentsAll.begin() + *i);
+            catch (std::exception e) {
+                continue;
+            }
         }
 
         markedForDeletion.clear();
+    }
+
+    if (markedForCreation.size() > 0) {
+        for (std::pair<const char*, Vec3> const& i : markedForCreation) {
+            BehaviorAgent* tmpAgent = nullptr;
+            switch (*(i.first)) {
+            case *typeScissor:
+                tmpAgent = agents->create_behavior_agent(typeScissor, BehaviorTreeTypes::ScissorBehaviour);
+                tmpAgent->set_movement_speed(7);
+                tmpAgent->set_color(Colors::Silver.v);
+                tmpAgent->set_scaling(1);
+                break;
+            case *typeRock:
+                tmpAgent = agents->create_behavior_agent(typeRock, BehaviorTreeTypes::RockBehaviour);
+                tmpAgent->set_movement_speed(7);
+                tmpAgent->set_color(Colors::Blue.v);
+                tmpAgent->set_scaling(1);
+                break;
+            case *typePaper:
+                tmpAgent = agents->create_behavior_agent(typePaper, BehaviorTreeTypes::PaperBehaviour);
+                tmpAgent->set_movement_speed(7);
+                tmpAgent->set_color(Colors::Red.v);
+                tmpAgent->set_scaling(1);
+                break;
+            default:
+                break;
+            }
+            tmpAgent->set_position(i.second);
+        }
+        markedForCreation.clear();
     }
 }
 

@@ -34,12 +34,14 @@ public:
 
     // agentType is for debug display and also looking up all agents of a specific type
     BehaviorAgent *create_behavior_agent(const char *agentType, BehaviorTreeTypes treeType);
+    void spawn_game_agent(const char*, Vec3 const&);
     AStarAgent *create_pathing_agent();
     EnemyAgent *create_enemy_agent();
     void destroy_agent(Agent *agent);
     
     const std::vector<Agent *> &get_all_agents() const;
     const std::vector<Agent *> &get_all_agents_by_type(const char *type);
+    Agent* const searchAgentTypeWithID(size_t, const char*) const;
     CameraAgent *const get_camera_agent() const;
 
     void draw() const;
@@ -51,6 +53,7 @@ private:
     std::unordered_map<const char *, std::vector<Agent *>> agentsByType;
     std::unordered_map<const char *, size_t> agentIDCounts;
     std::vector<size_t> markedForDeletion;
+    std::vector<std::pair<const char*, Vec3>> markedForCreation;
 
     std::unordered_map<BehaviorAgent *, UIBehaviorTreeTextField *> inUseTextFields;
     std::vector<UIBehaviorTreeTextField *> freeTextFields;

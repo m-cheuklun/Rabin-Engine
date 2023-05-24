@@ -119,7 +119,7 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <AdditionalIncludeDirectories>$(ProjectDir)\Source\Framework;$(ProjectDir)\Include;$(ProjectDir)\Source\Framework\BehaviorTrees</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Source\Framework;$(ProjectDir)\Include;$(ProjectDir)\Source\Framework\BehaviorTrees;$(ProjectDir)\Source\Student\Project_1</AdditionalIncludeDirectories>
       <StringPooling>true</StringPooling>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -252,16 +252,32 @@
     <ClInclude Include="Source\Student\Project_1\ControlFlow\C_RandomSelector.h" />
     <ClInclude Include="Source\Student\Project_1\ControlFlow\C_Selector.h" />
     <ClInclude Include="Source\Student\Project_1\ControlFlow\C_Sequencer.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_AlwaysFail.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfPaperCloseProximity.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfRockCloseProximity.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfScissorCloseProximity.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckPaperExists.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckRockExists.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_Delay.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_InvertedRepeater.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_Inverter.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_RepeatFourTimes.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_RunOnce.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_Celebration.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_CheckMouseClick.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_Idle.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_LeaveFootprint.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_MoveToFurthestAgent.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_MoveToMouseClick.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_MoveToRandomPosition.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySound.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestPaper.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestRock.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestScissor.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_RunFromTarget.h" />
     <ClInclude Include="Source\Student\Project_1\NodeHeaders.h" />
+    <ClInclude Include="Source\Student\Project_1\utility.h" />
     <ClInclude Include="Source\Student\Project_2\P2_Pathfinding.h" />
   </ItemGroup>
   <ItemGroup>
@@ -332,16 +348,32 @@
     <ClCompile Include="Source\Student\Project_1\ControlFlow\C_RandomSelector.cpp" />
     <ClCompile Include="Source\Student\Project_1\ControlFlow\C_Selector.cpp" />
     <ClCompile Include="Source\Student\Project_1\ControlFlow\C_Sequencer.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_AlwaysFail.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfPaperCloseProximity.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfRockCloseProximity.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfSissorCloseProximity.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckPaperExists.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckRockExists.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_Delay.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_InvertedRepeater.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_Inverter.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_RepeatFourTimes.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_RunOnce.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_Celebration.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_CheckMouseClick.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_Idle.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_LeaveFootprint.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_MoveToFurthestAgent.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_MoveToMouseClick.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_MoveToRandomPosition.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySound.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestPaper.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestRock.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestScissor.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_RunFromTarget.cpp" />
     <ClCompile Include="Source\Student\Project_1\Setup.cpp" />
+    <ClCompile Include="Source\Student\Project_1\utility.cpp" />
     <ClCompile Include="Source\Student\Project_2\P2_Pathfinding.cpp" />
     <ClCompile Include="Source\Student\Project_3\P3_TerrainAnalysis.cpp" />
   </ItemGroup>

@@ -149,6 +149,7 @@ void Agent::set_movement_speed(float speed)
 {
     movementSpeed = speed;
 }
+
 #pragma endregion
 
 void Agent::update(float dt)
