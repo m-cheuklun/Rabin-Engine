@@ -5,25 +5,7 @@
 
 void L_Celebration::on_enter()
 {
-    // set animation, speed, etc
-    agent->set_movement_speed(20);
-
-    targetPoint = RNG::world_position();
-
+    audioManager->PlayMusic(L"Assets\\Audio\\motivate.wav");
 	BehaviorNode::on_leaf_enter();
-}
-
-void L_Celebration::on_update(float dt)
-{
-    utils::leaveFootprint(agent);
-
-    const auto result = agent->move_toward_point(targetPoint, dt);
-    agent->set_roll(3.14f / dt);
-
-    if (result == true)
-    {
-        on_success();
-    }
-
-    display_leaf_text();
+    on_success();
 }

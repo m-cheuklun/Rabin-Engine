@@ -21,7 +21,7 @@
 #include "Decorator/D_CheckScissorExists.h"
 #include "Decorator/D_CheckIfPaperCloseProximity.h" // delete later
 #include "Decorator/D_CheckIfRockCloseProximity.h"  // delete later
-#include "Decorator/D_CheckIfScissorCloseProximity.h"  // delete later
+#include "Decorator/D_CheckVictory.h"
 #include "Decorator/D_RunOnce.h"
 #include "Decorator/D_Inverter.h" // delete later
 
@@ -39,4 +39,7 @@
 #include "Leaf/L_PursueClosestRock.h"
 #include "Leaf/L_PursueClosestScissor.h"
 #include "Leaf/L_PursueClosestPaper.h"
-#include "Leaf/L_Celebration.h" // delete later
+#include "Leaf/L_Celebration.h"
+#include "Leaf/L_SpeedUpGame.h"
+#include "Leaf/L_SlowDownGame.h"
+#include "Leaf/L_CelebrationDance.h"

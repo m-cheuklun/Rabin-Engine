@@ -259,12 +259,14 @@
     <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckPaperExists.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckRockExists.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.h" />
+    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckVictory.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_Delay.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_InvertedRepeater.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_Inverter.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_RepeatFourTimes.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_RunOnce.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_Celebration.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_CelebrationDance.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_CheckMouseClick.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_Idle.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_LeaveFootprint.h" />
@@ -276,6 +278,8 @@
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestRock.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestScissor.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_RunFromTarget.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_SlowDownGame.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_SpeedUpGame.h" />
     <ClInclude Include="Source\Student\Project_1\NodeHeaders.h" />
     <ClInclude Include="Source\Student\Project_1\utility.h" />
     <ClInclude Include="Source\Student\Project_2\P2_Pathfinding.h" />
@@ -355,12 +359,14 @@
     <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckPaperExists.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckRockExists.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckVictory.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_Delay.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_InvertedRepeater.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_Inverter.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_RepeatFourTimes.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_RunOnce.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_Celebration.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_CelebrationDance.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_CheckMouseClick.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_Idle.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_LeaveFootprint.cpp" />
@@ -372,6 +378,8 @@
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestRock.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestScissor.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_RunFromTarget.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_SlowDownGame.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_SpeedUpGame.cpp" />
     <ClCompile Include="Source\Student\Project_1\Setup.cpp" />
     <ClCompile Include="Source\Student\Project_1\utility.cpp" />
     <ClCompile Include="Source\Student\Project_2\P2_Pathfinding.cpp" />
