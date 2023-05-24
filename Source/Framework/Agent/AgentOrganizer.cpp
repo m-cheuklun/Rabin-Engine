@@ -137,7 +137,7 @@ const std::vector<Agent*> &AgentOrganizer::get_all_agents_by_type(const char *ty
 
 Agent* const AgentOrganizer::searchAgentTypeWithID(size_t id, const char* type) const {
     for (size_t i = 0; i < agentsAll.size(); ++i) {
-        if (agentsAll[i]->get_id() == id && agentsAll[i]->get_type() == type) return agentsAll[i];
+        if (agentsAll[i]->get_type() == type && agentsAll[i]->get_id() == id) return agentsAll[i];
     }
     return nullptr;
 }
@@ -164,6 +164,7 @@ void AgentOrganizer::draw_debug() const
 }
 
 void AgentOrganizer::spawn_game_agent(const char* type, Vec3 const& position) {
+    if (agentsAll.size() >= MaxAgents) return;
     markedForCreation.emplace_back(std::make_pair(type, position));
 }
 
@@ -186,7 +187,7 @@ void AgentOrganizer::update(float dt)
         if (skip) continue;
 
         switch (*agentsAll[i]->get_type()) {
-        case *typePaper: // if current agent is paper
+        case* typePaper: // if current agent is paper
             for (const auto& a : allRockAgents) {
                 if (Vec3::DistanceSquared(agentsAll[i]->position, a->position) < pow((agentRadius + agentRadius), 2)) {
                     agents->spawn_game_agent(typePaper, a->position);
@@ -194,7 +195,7 @@ void AgentOrganizer::update(float dt)
                 }
             }
             break;
-        case *typeRock: // if current agent is rock
+        case* typeRock: // if current agent is rock
             for (const auto& a : allScissorAgents) {
                 if (Vec3::DistanceSquared(agentsAll[i]->position, a->position) < pow((agentRadius + agentRadius), 2)) {
                     agents->spawn_game_agent(typeRock, a->position);
@@ -202,7 +203,7 @@ void AgentOrganizer::update(float dt)
                 }
             }
             break;
-        case *typeScissor: // if current agent is scissor
+        case* typeScissor: // if current agent is scissor
             for (const auto& a : allPaperAgents) {
                 if (Vec3::DistanceSquared(agentsAll[i]->position, a->position) < pow((agentRadius + agentRadius), 2)) {
                     agents->spawn_game_agent(typeScissor, a->position);
@@ -220,43 +221,40 @@ void AgentOrganizer::update(float dt)
     if (markedForDeletion.size() > 0)
     {
         std::sort(markedForDeletion.begin(), markedForDeletion.end());
+        auto it = std::unique(markedForDeletion.begin(), markedForDeletion.end());
+        markedForDeletion.erase(it, markedForDeletion.end());
 
         for (auto i = markedForDeletion.rbegin(); i != markedForDeletion.rend(); ++i)
         {
-            try {
-                auto agent = agentsAll[*i];
+            auto agent = agentsAll[*i];
 
-                auto type = agent->get_type();
+            auto type = agent->get_type();
 
-                auto result = agentsByType.find(type);
+            auto result = agentsByType.find(type);
 
-                if (result != agentsByType.end())
+            if (result != agentsByType.end())
+            {
+                for (auto j = result->second.begin(); j != result->second.end(); ++j)
                 {
-                    for (auto j = result->second.begin(); j != result->second.end(); ++j)
+                    if (*j == agent)
                     {
-                        if (*j == agent)
-                        {
-                            result->second.erase(j);
-                            break;
-                        }
+                        result->second.erase(j);
+                        break;
                     }
                 }
-
-                #ifdef _DEBUG
-                    BehaviorAgent *bAgent = dynamic_cast<BehaviorAgent *>(agent);
-                    if (bAgent != nullptr)
-                    {
-                        unassign_text_field(bAgent);
-                    }
-                #endif
-
-                delete agent;
-
-                agentsAll.erase(agentsAll.begin() + *i);
             }
-            catch (std::exception e) {
-                continue;
-            }
+
+            #ifdef _DEBUG
+                BehaviorAgent *bAgent = dynamic_cast<BehaviorAgent *>(agent);
+                if (bAgent != nullptr)
+                {
+                    unassign_text_field(bAgent);
+                }
+            #endif
+
+            delete agent;
+
+            agentsAll.erase(agentsAll.begin() + *i);
         }
 
         markedForDeletion.clear();
@@ -269,7 +267,7 @@ void AgentOrganizer::update(float dt)
             case *typeScissor:
                 tmpAgent = agents->create_behavior_agent(typeScissor, BehaviorTreeTypes::ScissorBehaviour);
                 tmpAgent->set_movement_speed(7);
-                tmpAgent->set_color(Colors::Silver.v);
+                tmpAgent->set_color(Colors::HotPink.v);
                 tmpAgent->set_scaling(1);
                 break;
             case *typeRock:

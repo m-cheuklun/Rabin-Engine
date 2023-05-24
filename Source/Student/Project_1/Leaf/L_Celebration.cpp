@@ -5,7 +5,8 @@
 
 void L_Celebration::on_enter()
 {
-    audioManager->PlayMusic(L"Assets\\Audio\\motivate.wav");
+    audioManager->StopMusic(L"Assets\\Audio\\rushE.wav");
+    audioManager->PlayMusic(L"Assets\\Audio\\rushEend.wav", true);
 	BehaviorNode::on_leaf_enter();
     on_success();
 }

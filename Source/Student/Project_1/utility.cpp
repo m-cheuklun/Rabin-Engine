@@ -12,7 +12,7 @@ void utils::leaveFootprint(BehaviorAgent* agent) {
         color = Colors::Red;
         break;
     case *typeScissor:
-        color = Colors::Silver;
+        color = Colors::HotPink;
         break;
     default: // Should never happen
         color = Colors::Black;

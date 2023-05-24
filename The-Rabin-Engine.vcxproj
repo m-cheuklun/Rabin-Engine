@@ -168,7 +168,7 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <TreatWarningAsError>true</TreatWarningAsError>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>$(ProjectDir)\Source\Framework;$(ProjectDir)\Include;$(ProjectDir)\Source\Framework\BehaviorTrees</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Source\Framework;$(ProjectDir)\Include;$(ProjectDir)\Source\Framework\BehaviorTrees;$(ProjectDir)\Source\Student\Project_1</AdditionalIncludeDirectories>
       <StringPooling>true</StringPooling>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -253,9 +253,6 @@
     <ClInclude Include="Source\Student\Project_1\ControlFlow\C_Selector.h" />
     <ClInclude Include="Source\Student\Project_1\ControlFlow\C_Sequencer.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_AlwaysFail.h" />
-    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfPaperCloseProximity.h" />
-    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfRockCloseProximity.h" />
-    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfScissorCloseProximity.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckPaperExists.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckRockExists.h" />
     <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.h" />
@@ -274,6 +271,10 @@
     <ClInclude Include="Source\Student\Project_1\Leaf\L_MoveToMouseClick.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_MoveToRandomPosition.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySound.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundPaper.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundPianoSlam.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundRock.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundScissor.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestPaper.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestRock.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PursueClosestScissor.h" />
@@ -353,9 +354,6 @@
     <ClCompile Include="Source\Student\Project_1\ControlFlow\C_Selector.cpp" />
     <ClCompile Include="Source\Student\Project_1\ControlFlow\C_Sequencer.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_AlwaysFail.cpp" />
-    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfPaperCloseProximity.cpp" />
-    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfRockCloseProximity.cpp" />
-    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfSissorCloseProximity.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckPaperExists.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckRockExists.cpp" />
     <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.cpp" />
@@ -374,6 +372,10 @@
     <ClCompile Include="Source\Student\Project_1\Leaf\L_MoveToMouseClick.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_MoveToRandomPosition.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySound.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundPaper.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundPianoSlam.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundRock.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundScissor.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestPaper.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestRock.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PursueClosestScissor.cpp" />

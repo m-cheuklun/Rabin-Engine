@@ -15,12 +15,10 @@
 #include "Decorator/D_RepeatFourTimes.h"
 
 // Student Decorator Nodes
-#include "Decorator/D_AlwaysFail.h" // delete later
+#include "Decorator/D_AlwaysFail.h"
 #include "Decorator/D_CheckPaperExists.h"
 #include "Decorator/D_CheckRockExists.h"
 #include "Decorator/D_CheckScissorExists.h"
-#include "Decorator/D_CheckIfPaperCloseProximity.h" // delete later
-#include "Decorator/D_CheckIfRockCloseProximity.h"  // delete later
 #include "Decorator/D_CheckVictory.h"
 #include "Decorator/D_RunOnce.h"
 #include "Decorator/D_Inverter.h" // delete later
@@ -43,3 +41,7 @@
 #include "Leaf/L_SpeedUpGame.h"
 #include "Leaf/L_SlowDownGame.h"
 #include "Leaf/L_CelebrationDance.h"
+#include "Leaf/L_PlaySoundPaper.h"
+#include "Leaf/L_PlaySoundRock.h"
+#include "Leaf/L_PlaySoundScissor.h"
+#include "Leaf/L_PlaySoundPianoSlam.h"

@@ -340,15 +340,6 @@
     <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.h">
       <Filter>Source\Student\Project_1\Decorator</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfPaperCloseProximity.h">
-      <Filter>Source\Student\Project_1\Decorator</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfRockCloseProximity.h">
-      <Filter>Source\Student\Project_1\Decorator</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Student\Project_1\Decorator\D_CheckIfScissorCloseProximity.h">
-      <Filter>Source\Student\Project_1\Decorator</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Student\Project_1\Leaf\L_RunFromTarget.h">
       <Filter>Source\Student\Project_1\Leaf</Filter>
     </ClInclude>
@@ -380,6 +371,18 @@
       <Filter>Source\Student\Project_1\Leaf</Filter>
     </ClInclude>
     <ClInclude Include="Source\Student\Project_1\Leaf\L_CelebrationDance.h">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundPaper.h">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundRock.h">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundScissor.h">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySoundPianoSlam.h">
       <Filter>Source\Student\Project_1\Leaf</Filter>
     </ClInclude>
   </ItemGroup>
@@ -624,15 +627,6 @@
     <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckScissorExists.cpp">
       <Filter>Source\Student\Project_1\Decorator</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfPaperCloseProximity.cpp">
-      <Filter>Source\Student\Project_1\Decorator</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfRockCloseProximity.cpp">
-      <Filter>Source\Student\Project_1\Decorator</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Student\Project_1\Decorator\D_CheckIfSissorCloseProximity.cpp">
-      <Filter>Source\Student\Project_1\Decorator</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Student\Project_1\Leaf\L_RunFromTarget.cpp">
       <Filter>Source\Student\Project_1\Leaf</Filter>
     </ClCompile>
@@ -664,6 +658,18 @@
       <Filter>Source\Student\Project_1\Leaf</Filter>
     </ClCompile>
     <ClCompile Include="Source\Student\Project_1\Leaf\L_CelebrationDance.cpp">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundPaper.cpp">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundRock.cpp">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundScissor.cpp">
+      <Filter>Source\Student\Project_1\Leaf</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySoundPianoSlam.cpp">
       <Filter>Source\Student\Project_1\Leaf</Filter>
     </ClCompile>
   </ItemGroup>
